@@ -1,0 +1,41 @@
+<%= form_for(@post,:html => { :multipart => true }) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "标题" %>:
+    <%= f.text_field :title,:style=>"width:500px;" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "置顶" %>:
+    <%= f.check_box :top %>
+  </div>
+  <div class="field">
+    <%= f.label "正文" %><br />
+    <%= f.cktext_area :content,
+      :toolbar => 'Full',
+      :width => 800,
+      :height => 200,
+      :language => 'zh-cn',
+      :filebrowserBrowseUrl => "/ckeditor/attachment_files",
+      :filebrowserUploadUrl => "/ckeditor/attachment_files",
+      :filebrowserImageBrowseUrl => "/ckeditor/pictures",
+      :filebrowserImageUploadUrl => "/ckeditor/pictures"
+  %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "确定" %>
+  </div>
+<% end %>

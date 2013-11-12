@@ -1,0 +1,259 @@
+
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    mCustomScrollbars();
+    jQuery('#logo-list').fadeIn();
+    jQuery('#logo-list').jcarousel({
+      auto: 2,
+      wrap: 'last',
+      initCallback: mycarousel_initCallback
+    });
+  });
+
+  function mycarousel_initCallback(carousel) {
+    // Disable autoscrolling if the user clicks the prev or next button.
+    carousel.buttonNext.bind('click',
+    function() {
+      carousel.startAuto(0);
+    });
+
+    carousel.buttonPrev.bind('click',
+    function() {
+      carousel.startAuto(0);
+    });
+
+    // Pause autoscrolling if the user moves with the cursor over the clip.
+    carousel.clip.hover(function() {
+      carousel.stopAuto();
+    },
+    function() {
+      carousel.startAuto();
+    });
+  };
+
+  function mCustomScrollbars() {
+    /*
+malihu custom scrollbar function parameters:
+1) scroll type (values: "vertical" or "horizontal")
+2) scroll easing amount (0 for no easing)
+3) scroll easing type
+4) extra bottom scrolling space for vertical scroll type only (minimum value: 1)
+5) scrollbar height/width adjustment (values: "auto" or "fixed")
+6) mouse-wheel support (values: "yes" or "no")
+7) scrolling via buttons support (values: "yes" or "no")
+8) buttons scrolling speed (values: 1-20, 1 being the slowest)
+     */
+    jQuery("#page-abouts").mCustomScrollbar("vertical", 300, "easeOutCirc", 1.05, "fixed", "yes", "yes", 15);
+    //jQuery("#mcs5_container").mCustomScrollbar("horizontal",500,"easeOutCirc",1,"fixed","yes","yes",20);
+  }
+
+  /* function to fix the -10000 pixel limit of jquery.animate */
+
+  jQuery.fx.prototype.cur = function() {
+
+    if (this.elem[this.prop] != null && (!this.elem.style || this.elem.style[this.prop] == null)) {
+
+      return this.elem[this.prop];
+
+    }
+
+    var r = parseFloat(jQuery.css(this.elem, this.prop));
+
+    return typeof r == 'undefined' ? 0 : r;
+
+  }
+</script>
+
+<div id="home-main">
+  <div class="breadcrumbs">
+    <!-- Breadcrumb NavXT 4.0.2 -->
+    <a title="连接到 首页." href="http://www.ino-design.com">
+      首页
+    </a> &gt; 洛梵画廊简介
+  </div>
+  <div id="page-title">
+    <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/about-us.gif"
+         alt="洛梵画廊简介" />
+  </div>
+  <div id="page-container">
+    <div id="page-colum-left">
+    </div>
+    <div id="page-colum-right">
+      <h2>
+        洛梵画廊
+      </h2>
+      <h4>
+        Guangzhou Ino Design Consulting Co.,Ltd
+      </h4>
+      <div class="page-text-content" id="page-abouts">
+        <div class="customScrollBox">
+          <div class="container">
+            <div class="content">
+              <div id="page-container">
+                <div id="post-248" class="post-248 page type-page status-publish hentry">
+                  <%=@page.content.html_safe%>
+                </div>
+                <!-- #post-## -->
+
+                <!-- #comments -->
+              </div>
+            </div>
+          </div>
+          <div class="dragger_container">
+            <div class="dragger">
+            </div>
+          </div>
+        </div>
+        <!--a href="#" class="scrollUpBtn"></a> <a href="#" class="scrollDownBtn"></a-->
+      </div>
+      <div id="partner-list" class="group">
+        <h3>
+          <span class="en-title">
+            OUR PARTNERS
+          </span>
+          / 合作伙伴
+        </h3>
+        <ul id="logo-list" class="jcarousel-skin-logo">
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/19.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/7.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/1.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/2.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/3.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/4.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/5.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/7.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/8.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/9.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/10.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/11.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/12.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/13.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/14.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/15.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/16.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/17.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/18.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/26.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/20.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/21.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/22.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/23.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/24.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/25.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/6.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/27.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/28.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/29.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/30.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/31.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/32.gif"
+                 alt="" />
+          </li>
+          <li>
+            <img src="http://www.ino-design.com/wp-content/themes/ino-design/images/logos/33.gif"
+                 alt="" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- #home-main -->
+</div>
+<!-- #main -->

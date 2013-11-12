@@ -1,0 +1,32 @@
+<div id="artwork" class="form">
+  <%= simple_form_for(@artwork, 
+    :url => (@artwork.id.blank? ? artworks_path : artwork_path(@artwork)) ) do |f| %>
+
+    <div class="inputs">
+      <%= f.association :artist,label: "艺术家" %>
+      <%= f.association :category,label: "分类" %>
+      <%= f.input :title,label: "标题" %>
+      <%= f.input :medium,label: "材料" %>
+      <%= f.input :dimensions,label: "尺寸" %>
+      <%= f.input :year,label: "年代" %>
+      <%= f.input :listed, :as => :date_picker,label: "上市时间" %>
+      <%= f.input :markings,label: "签名" %>
+      <%= f.input :exhibition,label: "展览" %>
+      <%= f.input :edition,label: "版本" %>
+      <%= f.input :literature,label: "出版" %>
+      <%= f.input :condition_report,label: "品相" %>
+      <%= f.input :avater1, :as => :avater,:label=> "图片1",:input_html=>{ class: 'avatar-input' } %>
+      <%= f.input :avater2, :as => :avater,:label=> "图片2",:input_html=>{ class: 'avatar-input' } %>
+      <%= f.input :avater3, :as => :avater,:label=> "图片3",:input_html=>{ class: 'avatar-input' } %>
+      
+      <fieldset class="clearfix" style="margin-bottom:20px;">
+        <legend>描述</legend>
+
+        <%= f.text_area :description,style: "width:800px;height:200px;"%>
+      </fieldset>
+    </div>
+    <div class="actions">
+      <%= f.submit "提交", :class => "btn btn-primary" %> 或者 <%= link_to '返回', artworks_path %>
+    </div>
+  <% end %>
+</div>

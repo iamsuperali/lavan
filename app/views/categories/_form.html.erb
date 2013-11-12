@@ -1,0 +1,13 @@
+<div id="category" class="form">
+  <%= simple_form_for(@category, 
+    :url => (@category.id.blank? ? categories_path : category_path(@category)) ) do |f| %>
+
+    <div class="inputs">
+      <%= f.input :name,label: "分类名称" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "提交", :class => "btn btn-primary" %> 或者 <%= link_to '返回', categories_path %>
+    </div>
+  <% end %>
+</div>

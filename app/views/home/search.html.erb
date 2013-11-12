@@ -1,0 +1,46 @@
+<% content_for :title, "法国拉苏米亚葡萄酒柜（La Sommelière）- 搜索结果" %>
+<div class="bandeauHaut"  style="background-image:url('<%=asset_path("cate_bg.jpg")%>')"">
+  <div class="AccrocheListeRub" style="margin-right:-475px; top:24px; width:537px;">
+    <h3>搜索结果</h3>
+    <p class="accrochePage"></p>
+  </div>
+</div>
+<div id="centreSite" class="body">
+  <div id="contenuCentre">
+
+    <div class="colM">
+      <div class='clear'></div>
+      <div class="blocListeGamme">
+
+        <div class="savoirPlusDeplie" style="display:none;">
+          <p>Avec ces caves mixtes, vous vieillissez et mettez vos bouteilles à température simultanément.<br>Réglez la température minimale en bas de la cave et la température maximale en haut de celle-ci. L’écart entre ces deux températures se divise automatiquement pour vous offrir jusqu’à 6 zones de températures différentes. Si vous souhaitez que votre cave n’offre qu’une seule et même température, vous sélectionnez une température minimale et maximale identique.<br><br><img src="/donnees/cms/originales/bande-multitemperature-2.jpg" alt="" data-mce-src="/donnees/cms/originales/bande-multitemperature-2.jpg" height="68" width="665"><br></p>	</div>
+        <div class="capsBlocListeGamme">
+          <%@winecoolers.each do |w|%>
+            <table class="capsProdBlocListeGamme">
+              <tr>
+                <td class="imgListeGamme">
+                  <div>
+                    <%if w.uploads && w.uploads.length > 0%>
+                      <img src="<%=w.uploads.first.upload.url(:thumb)%>" alt="<%=w.model%>" onClick="document.location.href='/winecoolers/<%=w.id%>'">
+                    <%end%>
+                  </div>
+                </td>
+                <td>
+                  <h3><a href="/winecoolers/<%=w.id%>"><%=w.model%></a></h3>
+                  <p><%= (truncate(strip_tags(w.desc), :length => 100, :omission => '...')).html_safe %></p>
+                  <a href="/winecoolers/<%=w.id%>" title="<%=w.model%>" class="plusdinfo">
+                    <div style="background-color:#d61260;" class="puceCouleur"><img src="/images/skins/commun/puce.png" /></div>
+                    <span>详细</span>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          <%end%>
+          <br style="clear: both;" />
+          <br class="magicHeight">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;" ></div>
+</div>

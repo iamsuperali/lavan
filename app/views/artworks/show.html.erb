@@ -1,0 +1,123 @@
+<div id="content">
+  <div class="container one_col">
+    <div class="col_main">
+      <div class="small_breadcrumbs clearfix">
+        <p class="breadcrumbs"><a href=".">首页</a> <code>/</code> <a href="art">艺术品</a> <code>/</code> <a href="painting">油画</a></p>		<div class="collect_view">
+          <a href="javascript:window.print();" class="print tip" title="打印">打印</a>
+        </div>
+      </div>
+
+      <div class="goods_details box thin_box">
+        <a href="art-9352.html" class="next tip" title="下一个作品">下一个作品</a>			<a href="art-9393.html" class="prev tip" title="上一个作品">上一个作品</a>	<div class="bd">
+          <div class="details">
+            <p class="sn"># HIHEY009380</p>						<a href="alita" class="brand">阿丽塔</a>
+            <h1>图腾</h1>
+            <div class="goods_properties">
+              <p><strong>材料：</strong>石膏 油画丙烯 二极管</p>
+              <p><strong>尺寸：</strong>40×70㎝</p>
+              <p><strong>年代：</strong>2013</p>
+              <p><strong>签名：</strong>阿丽塔</p>
+            </div>
+            <form action="javascript:buy(9380)" method="post" id="purchase_form">
+              <ul class="basic clearfix">
+                <li><strong>上市时间：</strong>2013-08-02</li>
+                <li><strong>浏览次数：</strong>507</li>																								</ul>
+              <div class="actions">
+                <p>
+                  <a href="auction-5562.html" class="submit btn_special btn_auction"><span>拍卖</span></a>
+                  <a href="javascript:like(9380)" class="btn_like" data-id="9380"><i></i><span class="status">喜欢</span><span class="act">添加喜欢</span></a>
+                </p>
+              </div>
+              <p class="tel">客户服务：<em>4008-123-798</em></p>
+              <div id="share_this">
+                <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+                  <a class="bds_tsina"></a>
+                  <a class="bds_tqq"></a>
+                  <a class="bds_renren"></a>
+                  <a class="bds_douban"></a>
+                  <span class="bds_more">更多</span>
+                  <a class="shareCount"></a>
+                </div>
+                <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=278540" ></script>
+                <script type="text/javascript" id="bdshell_js"></script>
+              </div>
+              <input type="hidden" name="number" value="1" id="number" />
+            </form>
+          </div>
+          <div class="extra_details">
+            <div class="gallery" id="gallery">
+              <div class="cover_wrapper" id="cover_wrapper">
+                <a href="<%=@artwork.avater1.url(:original)%>" title="图腾" class="cover cloud_zoom" id="product_img_large" rel="position:'inside', showTitle:false, adjustX:-4, adjustY:-4, loading:'大图载入中...' ">
+                  <i></i>
+                  <img src="<%=@artwork.avater1.url(:content)%>" class="img" alt="阿丽塔_图腾_高清大图"/>
+                  <img src="<%=asset_path("spacer.gif")%>" class="spacer"/>
+                  <span class="zoom_icon">&nbsp;</span>
+                </a>
+              </div>
+              <div class="thumb">
+                <div class="thumb_inner">
+                  <ul>
+                    <li><a href="<%=@artwork.avater1.url(:original)%>" title="" class="cloud_zoom_gallery" rel="position: 'inside', useZoom: 'product_img_large', smallImage: '<%=@artwork.avater1.url(:content)%>', title: ''"><img src="<%=@artwork.avater1.url(:thumb)%>" alt=""></a></li>
+                    <li><a href="<%=@artwork.avater2.url(:original)%>" title="局部" class="cloud_zoom_gallery" rel="position: 'inside', useZoom: 'product_img_large', smallImage: '<%=@artwork.avater2.url(:content)%>', title: '局部'"><img src="<%=@artwork.avater2.url(:thumb)%>" alt="局部"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+          </div>
+         
+        </div>
+
+
+      </div>
+
+
+<div id="galleria"></div>
+<script type="text/javascript" src="<%=asset_path("galleria.js")%>"></script>
+<script type="text/javascript">
+  
+  var galleryData = [
+    {
+      thumb: '<%=@artwork.avater1.url(:medium)%>',
+      image: '<%=@artwork.avater1.url(:medium)%>',
+      big: '<%=@artwork.avater1.url(:content)%>',
+      title: '',
+      description: ''
+    },{
+      thumb: '<%=@artwork.avater2.url(:medium)%>',
+      image: '<%=@artwork.avater2.url(:medium)%>',
+      big: '<%=@artwork.avater2.url(:content)%>',
+      title: '',
+      description: '局部'
+    }];
+  if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+  }else{
+    Galleria.loadTheme('<%=asset_path("galleria.twelve.min.js")%>');
+    $('#galleria').galleria({
+      dataSource: galleryData,
+      imageCrop: false,
+      thumbCrop: false,
+      _showPopout: false,
+      _locale: {
+        show_thumbnails: '显示缩略图',
+        hide_thumbnails: '隐藏缩略图',
+        play: '滚动播放',
+        pause: '停止滚动播放',
+        enter_fullscreen: '进入全屏模式',
+        exit_fullscreen: '退出全屏模式',
+        popout_image: '弹出图片',
+        showing_image: '显示图片 %s / %s'
+      },
+      extend: function(options) {
+        var gallery = this;
+        $('#cover_wrapper').click(function() {
+          $('.tipsy').remove();
+          gallery.enterFullscreen();
+        });
+      }
+    });
+  }
+</script>

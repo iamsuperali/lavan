@@ -1,0 +1,16 @@
+<%= content_for :sitemap do %>
+  <span class="current">修改</span>
+<% end %>
+
+<%= content_for :base_sitemap do %>
+  <ul class="breadcrumb">
+    <li><a href="/admin/index">后台管理</a> <span class="divider">/</span></li>
+    <li><a href="/members">洛梵画廊团队</a> <span class="divider">/</span></li>
+    <li class="active"><%=@member.cname%></li>
+  </ul>
+<% end %>
+<%= content_for :styles do %>
+<% end %>
+
+<%= render 'form' %>
+

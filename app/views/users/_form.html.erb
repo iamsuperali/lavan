@@ -1,0 +1,67 @@
+<%= form_for(@user,:html => { :multipart => true }) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :email,"注册邮箱" %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :user_name,"用户名" %><br />
+    <%= f.text_field :user_name %>
+  </div>
+
+
+  <div><%= f.label :password,"密码"  %><br />
+    <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation,"密码确认"  %><br />
+    <%= f.password_field :password_confirmation %></div>
+
+
+  <div>
+    <%= f.label :real_name,"真实姓名" %><br />
+    <%= f.text_field :real_name %>
+  </div>
+
+  <div>
+    <%= f.label :id_card,"身份证号" %><br />
+    <%= f.text_field :id_card %>
+  </div>
+
+  <div>
+    <%= f.label :tel,"联系电话" %><br />
+    <%= f.text_field :tel %>
+  </div>
+
+  <div>
+    <%= f.label :company,"工作单位" %><br />
+    <%= f.text_field :company %>
+  </div>
+
+  <div><%= f.label :role,"角色"  %><br />
+    <% for role in User::ROLES %>
+      <%= check_box_tag "user[roles][#{role}]", role, @user.roles.include?(role), {:name => "user[roles][]"}%>
+      <%= label_tag "user_roles_#{role}", role.humanize %><br />
+    <% end %>
+    <%= hidden_field_tag "user[roles][]", "" %>
+  </div>
+
+  <div>
+    <%= f.label :approved,"审批" %><br />
+    <%= f.check_box :approved %>
+  </div>
+
+  <div><%= f.submit "确定" %></div>
+<% end %>
+

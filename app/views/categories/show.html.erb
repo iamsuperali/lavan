@@ -1,0 +1,20 @@
+<%= content_for :sitemap do %>
+<span class="current">查看</span>
+<% end %>
+
+<%= content_for :base_sitemap do %>
+<ul class="breadcrumb">
+  <li><a href="/admin/index">管理后台</a> <span class="divider">/</span></li>
+  <li><a href="<%= categories_path %>">categories</a> <span class="divider">/</span></li>
+  <li class="active">查看</li>
+</ul>
+<% end %>
+<%= content_for :styles do %>
+<% end %>
+
+<div class="tools">
+  <%= link_to '修改', edit_category_path(@category), :class => "btn small success" %>
+  <%= link_to '返回', categories_path, :class => "btn small" %>
+</div>
+<div id="category">
+  </div>

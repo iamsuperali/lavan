@@ -1,0 +1,9 @@
+<%= content_for :base_sitemap do %>
+  <ul class="breadcrumb">
+    <li><a href="/admin/index">后台管理</a> <span class="divider">/</span></li>
+    <li><%=link_to "首页幻灯片管理", slides_path  %><span class="divider">/</span></li>
+    <li class="active">修改幻灯片 <%=@slide.title%></li>
+  </ul>
+<%end%>
+
+<%= render 'form' %>

@@ -1,0 +1,18 @@
+<% content_for :title, "法国拉苏米亚葡萄酒柜（La Sommelière）- 产品介绍" %>
+
+<div class="bandeauHaut"  style="background-image:url('<%=asset_path("cate_bg.jpg")%>')">
+  <div class="AccrocheListeRub" style="margin-right:-475px; top:24px; width:537px;">
+    <h3>产品系列</h3>
+    <p class="accrochePage">我们为您准备了不同系列的产品，对应您对红酒储存不同的需求。</p>
+  </div>
+</div>
+<div id="centreSite" class="body"><div id="contenuCentre">
+    <%@categories.each do |c|%>
+      <div class="ListeRub">
+        <div style="background-image: url('<%=c.bg.url(:content)%>');" >
+          <p><%=c.desc%></p>
+          <a href="/categories/<%=c.id%>" title="<%=c.name%>" style="background-color:#d61260;"><%=c.name%></a>
+        </div>
+      </div>
+    <%end%>
+  </div><div style="clear:both;" ></div></div>

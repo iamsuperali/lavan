@@ -1,0 +1,40 @@
+<h3>注册</h3>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email,"注册邮箱" %><br />
+    <%= f.email_field :email %></div>
+
+  <div><%= f.label :user_name,"用户名" %><br />
+    <%= f.text_field :user_name %></div>
+
+  <div><%= f.label :password,"密码"  %><br />
+    <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation,"密码确认"  %><br />
+    <%= f.password_field :password_confirmation %></div>
+
+  <div>
+    <%= f.label :real_name,"真实姓名" %><br />
+    <%= f.text_field :real_name %>
+  </div>
+
+  <div>
+    <%= f.label :id_card,"身份证号" %><br />
+    <%= f.text_field :id_card %>
+  </div>
+
+  <div>
+    <%= f.label :tel,"联系电话" %><br />
+    <%= f.text_field :tel %>
+  </div>
+
+  <div>
+    <%= f.label :company,"工作单位" %><br />
+    <%= f.text_field :company %>
+  </div>
+
+  <div><%= f.submit "注册" %></div>
+<% end %>
+

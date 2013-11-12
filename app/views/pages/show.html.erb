@@ -1,0 +1,18 @@
+<% content_for :title, "法国拉苏米亚葡萄酒柜（La Sommelière）- #{@page.title}" %>
+<div class="bandeauHaut" style="background-image:url('<%=asset_path("page_bg_#{@page.id}.jpg")%>')">
+  <div class="AccrocheListeRub" style="margin-right:-475px; top:24px; width:537px;">
+    <h3><%=@page.title%></h3>
+    <p class="accrochePage">
+      <%=@page.subtitle%>
+    </p>
+  </div>
+</div>
+<div class="body" id="centreSite">
+  <div id="contenuCentre">
+    <div class="capsActu">
+      <%=@page.content.html_safe%>
+    </div>
+  </div>
+  <div style="clear:both;">
+    &nbsp;</div>
+</div>

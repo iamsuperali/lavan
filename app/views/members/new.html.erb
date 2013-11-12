@@ -1,0 +1,14 @@
+<%= content_for :sitemap do %>
+  <span class="current">新建</span>
+<% end %>
+
+<%= content_for :base_sitemap do %>
+  <ul class="breadcrumb">
+    <li><a href="/admin/index">后台首页</a> <span class="divider">/</span></li>
+    <li><a href="<%= members_path %>">洛梵画廊团队</a></li>
+  </ul>
+<% end %>
+<%= content_for :styles do %>
+<% end %>
+
+<%= render 'form' %>

@@ -1,0 +1,66 @@
+<h1>文章统计</h1>
+<table cellpadding="0" cellspacing="0" class="admin">
+  <caption><h2>按科组</h2></caption>
+  <tr>
+    <th>科组</th>
+    <th>本周统计</th>
+    <th>本月统计</th>
+    <th>学年统计</th>
+  </tr>
+  <tbody>
+    <%  org_list.each do |cur_org| %>
+        <tr>
+          <th class="spec"><%=  cur_org[0] %></th>
+          <% @times.each do |t| %>
+            <td>
+              <%=Post.where(:created_at =>t[1]..t[2],:org_id=>cur_org[1]).count()%>
+            </td>
+          <%end%>
+        </tr>
+    <%  end %>
+  </tbody>
+</table>
+
+<table cellpadding="0" cellspacing="0" class="admin">
+  <caption><h2>按年级</h2></caption>
+  <tr>
+    <th>年级</th>
+    <th>本周统计</th>
+    <th>本月统计</th>
+    <th>学年统计</th>
+  </tr>
+  <tbody>
+    <%  grade_list.each do |cur_g| %>
+        <tr>
+          <th class="spec"><%=  cur_g[0] %></th>
+          <% @times.each do |t| %>
+            <td>
+              <%=Post.where(:created_at =>t[1]..t[2],:grade=>cur_g[1]).count()%>
+            </td>
+          <%end%>
+        </tr>
+    <%  end %>
+  </tbody>
+</table>
+
+<table cellpadding="0" cellspacing="0" class="admin">
+  <caption><h2>按账号</h2></caption>
+  <tr>
+    <th>账号</th>
+    <th>本周统计</th>
+    <th>本月统计</th>
+    <th>学年统计</th>
+  </tr>
+  <tbody>
+    <%  User.all.each do |cur_u| %>
+        <tr>
+          <th class="spec"><%=  cur_u.user_name %></th>
+          <% @times.each do |t| %>
+            <td>
+              <%=Post.where(:created_at =>t[1]..t[2],:user_id => cur_u.id).count()%>
+            </td>
+          <%end%>
+        </tr>
+    <%  end %>
+  </tbody>
+</table>

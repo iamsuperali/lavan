@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cname: MyString
+  ename: MyString
+  info: MyString
+  avatar1: 
+  avater2: 
+  title_img: 
+
+two:
+  cname: MyString
+  ename: MyString
+  info: MyString
+  avatar1: 
+  avater2: 
+  title_img: 

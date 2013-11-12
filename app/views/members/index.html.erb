@@ -1,0 +1,57 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#sortable tbody").sortable({
+      items: 'tr',
+      update: function(){
+        $.ajax({
+          type: 'post',
+          data: $('#sortable  tbody').sortable('serialize'),
+          dataType: 'script',
+          complete: function(request){
+            $('#sortable').effect('highlight');
+          },
+          url: '/members/sort'})
+      }
+    }).disableSelection();
+  });
+</script> 
+
+<%= content_for :sitemap do %>
+  <span class="current">列表</span>
+<% end %>
+
+<%= content_for :base_sitemap do %>
+  <ul class="breadcrumb">
+    <li><a href="/admin/index">后台管理</a> <span class="divider">/</span></li>
+    <li class="active">洛梵画廊团队</li>
+  </ul>
+<% end %>
+<%= content_for :styles do %>
+<% end %>
+
+<div class="tools">
+  <a href="<%= members_path %>" class="btn btn-info">查看所有</a>
+  <a href="<%= new_member_path %>" class="btn btn-success">新建</a>
+</div>
+
+<div id="members">
+  <%= grid(@members_grid,:html=>{:id=>"sortable"}) do |g|
+    
+    g.row_attributes do |m|
+      {:id=>"item_#{m.id}"}
+    end
+    
+    g.column :name => '成员姓名', :attribute => 'cname',:class=>"sort-row"
+
+    g.column   do |m|
+      link_to('修改', edit_member_path(m))
+    end
+
+    g.column   do |m|
+      link_to('删除', member_path(m), :method => :delete, :confirm => '确定要删除吗?')
+    end
+
+  end %>
+</div>
+
+

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  artist_id: 1
+  category_id: 1
+  title: MyString
+  medium: MyString
+  dimensions: MyString
+  year: 1
+  listed: 2013-11-11
+  markings: MyString
+  exhibition: MyString
+  edition: MyString
+  literature: MyString
+  condition_report: MyString
+  description: MyText
+  click_count: 1
+
+two:
+  artist_id: 1
+  category_id: 1
+  title: MyString
+  medium: MyString
+  dimensions: MyString
+  year: 1
+  listed: 2013-11-11
+  markings: MyString
+  exhibition: MyString
+  edition: MyString
+  literature: MyString
+  condition_report: MyString
+  description: MyText
+  click_count: 1

@@ -1,0 +1,126 @@
+<div id="content">
+  <div class="container one_col">
+    <div class="col_main">
+      <div class="small_breadcrumbs clearfix">
+        <p class="breadcrumbs"><a href=".">首页</a></p>		<div class="collect_view">
+          <a href="javascript:window.print();" class="print tip" title="打印">打印</a>
+          <div class="share_this">
+            <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+              <a class="bds_tsina"></a>
+              <a class="bds_tqq"></a>
+              <a class="bds_renren"></a>
+              <a class="bds_douban"></a>
+              <span class="bds_more">更多</span>
+              <a class="shareCount"></a>
+            </div>
+            <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=278540" ></script>
+            <script type="text/javascript" id="bdshell_js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand_details clearfix">
+        <div class="info">
+          <%=image_tag @artist.avater.url(:content),:class=>"brand_logo"%>			
+          <h1><%=@artist.name%><em><%=@artist.age%> <%=@artist.address%></em></h1>
+          <p class="address"><%=@artist.birthplace%></p>			
+          <p class="url"><a href="<%=@artist.pinyin%>">lavan-gallery.com/<%=@artist.pinyin%></a></p>
+          <p class="button_wrapper"></p>
+        </div>
+        <div class="follow_info">
+          <span><em>1</em>作品</span>
+          <span><em>6</em>粉丝</span>
+          <span><em>1398</em>访问量</span>
+        </div>
+        <hr class="clearer" />
+        <p class="description"><%=@artist.profile.html_safe%></p>	
+      </div>
+      <div class="tab_wrapper">
+        <p class="tabs">
+          <a href="alita" class="current"><span>全部分类</span></a>
+          <!--a href="artist-2489-c2.html"><span>油画<sup><em>1</em></sup></span></a-->
+        </p>
+        <div class="extra"></div>
+      </div>
+      <div class="list_switcher_box">
+        <div class="list_switcher">
+          <!--p class="tabs order">
+            <em class="label">排序：</em>
+            <a href="artist-2489-c0-1-goods_id-ASC.html#goods_list" class="current"><span>上市时间<em class="arrow_up">&uarr;</em></span></a>
+            <a href="artist-2489-c0-1-last_update-DESC.html#goods_list"><span>更新时间</span></a>
+            <a href="artist-2489-c0-1-shop_price-DESC.html#goods_list"><span>价格</span></a>
+          </p-->
+          <div class="extra">
+          </div>
+        </div>
+        <div class="box" id="goods_list">
+          <div class="hd"><h3>作品列表</h3><div class="mode"></div></div>
+          <div class="bd goods_list">
+            <ul>
+              <%@artist.artworks.each do |a|%>
+                <li class="first_child first_row" data-id="9380">
+                  <span class="photo">
+                    <a href="/artworks/<%=a.id%>" title="<%=a.title%>" class="image">
+                      <%=image_tag a.avater1.url(:medium)%>
+                    </a>
+                  </span>
+                  <span class="inf  o">
+                    <a href="alita" title="<%=@artist.name%>" class="brand"><%=@artist.name%></a>
+                    <a href="/artworks/<%=a.id%>" title="<%=a.title%>" class="name"><%=a.title%></a>
+                  </span>
+                </li>
+              <%end%>
+            </ul>
+            <p class="pagination">
+            </p>
+          </div>
+        </div>
+      </div>	
+    </div>
+  </div></div>
+
+<script type="text/javascript" src="/static/js/jquery.js?v=1.7.1"></script>
+<script type="text/javascript" src="/static/js/plugins.js?v=17"></script>
+<script type="text/javascript" src="/static/js/lang.zh_cn.js?v=21"></script>
+<script type="text/javascript" src="/static/js/global.js?v=51"></script>
+<script type="text/javascript" src="/static/js/init.js?v=28"></script>
+<script type="text/javascript">
+  $('.slider').Slidiy();
+  var mt_wrapper = $('.brand_details .button_wrapper');
+  var profile = $('.brand_details .description');
+  var player = $('.brand_details .player_wrapper');
+  if (profile.length > 0) {
+    profile.hide();
+    mt_wrapper.append('<a href="javascript:;" class="simple_button" id="show_profile">简介</a>');
+    $('#show_profile').click(function(){
+      var profile_html = '<div class="text_in_the_box">'+profile.html()+'</div>';
+      $.fn.colorbox({maxHeight:'80%',width:'750px',title:'阿丽塔简介',html:profile_html,onOpen:function(){
+          $('.tipsy').css({zIndex:'100'});
+        },onClosed:function(){
+          $('.tipsy').css({zIndex:'1000'});
+        }
+      });
+      return false;
+    });
+  }
+  if (player.length > 0) {
+    player.hide();
+    mt_wrapper.append('<a href="javascript:;" class="simple_button" id="show_video">视频</a>');
+    $('#show_video').click(function(){
+      var player_html = $('#player_wrapper').html();
+      $.fn.colorbox({innerHeight:'540px',innerWidth:'960px',title:'阿丽塔视频',iframe:true,scrolling:false,href:'artist.php?id=2489&iframe=video',onOpen:function(){
+          $('.tipsy').css({zIndex:'100'});
+        },onClosed:function(){
+          $('.tipsy').css({zIndex:'1000'});
+        }
+      });
+      return false;
+    });
+  }
+</script>
+
+<script type="text/javascript">
+  document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<%= content_for :sitemap do %>
+<span class="current">新建</span>
+<% end %>
+
+<%= content_for :base_sitemap do %>
+<ul class="breadcrumb">
+  <li><a href="/admin/index">管理后台</a> <span class="divider">/</span></li>
+  <li><a href="<%= awards_path %>">awards</a> <span class="divider">/</span></li>
+  <li class="active">新建</li>
+</ul>
+<% end %>
+<%= content_for :styles do %>
+<% end %>
+
+<%= render 'form' %>

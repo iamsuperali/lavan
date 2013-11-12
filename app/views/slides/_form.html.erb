@@ -1,0 +1,30 @@
+<%= form_for(@slide) do |f| %>
+  <% if @slide.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@slide.errors.count, "error") %> prohibited this slide from being saved:</h2>
+
+      <ul>
+        <% @slide.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title,"标题" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :link,"链接" %>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :image,"图片" %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "提交", :class => "btn btn-primary" %> 或者 <%= link_to '返回', members_path %>
+  </div>
+<% end %>

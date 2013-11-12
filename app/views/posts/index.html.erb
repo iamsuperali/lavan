@@ -1,0 +1,18 @@
+<h3>文章列表</h3>
+<%= grid(@posts_grid) do |g|
+
+  g.column :name => '标题', :attribute => 'title',:html=>{:style=>"width:280px;"}
+
+  g.column :name => '分类',:model => 'Category', :attribute => 'name',:custom_filter=>:auto do |post|
+    post.category.name if post.category
+  end
+
+  g.column   do |post|
+    link_to('修改', edit_post_path(post))
+  end
+  
+  g.column do |post|
+    link_to('删除', post, method: :delete, data: { confirm: '你确定?' })
+  end
+end -%>
+<%= link_to '新增文章', new_post_path %>

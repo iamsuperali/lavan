@@ -1,0 +1,32 @@
+<%= content_for :sitemap do %>
+<span class="current">查看</span>
+<% end %>
+
+<%= content_for :base_sitemap do %>
+<ul class="breadcrumb">
+  <li><a href="/admin/index">管理后台</a> <span class="divider">/</span></li>
+  <li><a href="<%= awards_path %>">awards</a> <span class="divider">/</span></li>
+  <li class="active">查看</li>
+</ul>
+<% end %>
+<%= content_for :styles do %>
+<% end %>
+
+<div class="tools">
+  <%= link_to '修改', edit_award_path(@award), :class => "btn small success" %>
+  <%= link_to '返回', awards_path, :class => "btn small" %>
+</div>
+<div id="award">
+      <p>
+      <b>Year:</b>
+      <%= @award.year %>
+    </p>
+      <p>
+      <b>Description:</b>
+      <%= @award.description %>
+    </p>
+      <p>
+      <b>Avatar:</b>
+      <%= @award.avatar %>
+    </p>
+  </div>

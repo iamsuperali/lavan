@@ -1,0 +1,23 @@
+<div id="artist" class="form">
+  <%= simple_form_for(@artist, 
+    :url => (@artist.id.blank? ? artists_path : artist_path(@artist)) ) do |f| %>
+
+    <div class="inputs">
+      <%= f.input :name,label: "姓名" %>
+      <%= f.input :age,label: "出生年份",collection: 1880..2013 %>
+      <%= f.input :birthplace,label: "出生地" %>
+      <%= f.input :address,label: "现居地" %>
+      <%= f.input :avater, :as => :avater,:label=> "头像",:input_html=>{ class: 'avatar-input' } %>
+
+      <fieldset class="clearfix" style="margin-bottom:20px;">
+        <legend>个人简介</legend>
+
+        <%= f.text_area :profile,style: "width:800px;height:200px;"%>
+      </fieldset>
+
+    </div>
+    <div class="actions">
+      <%= f.submit "提交", :class => "btn btn-primary" %> 或者 <%= link_to '返回', artists_path %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+<%= content_for :base_sitemap do %>
+  <ul class="breadcrumb">
+    <li><a href="/admin/index">后台管理</a> <span class="divider">/</span></li>
+    <li class="active">幻灯片管理</li>
+  </ul>
+<%end%>
+
+<div class="tools">
+  <a href="<%= slides_path %>" class="btn btn-info">查看所有</a>
+  <a href="<%= new_slide_path %>" class="btn btn-success">新建</a>
+</div>
+<%= grid(@slides_grid) do |g|
+
+  g.column :name => '标题', :attribute => 'title', filter: false,:html=>{:style=>"width:280px;"}
+
+  g.column do |slide|   
+    image_tag slide.image.url(:thumb)
+  end
+
+
+  g.column   do |slide|
+    link_to('修改', edit_slide_path(slide))
+  end
+
+  g.column do |slide|
+    link_to('删除', slide, method: :delete, data: { confirm: '你确定?' })
+  end
+end -%>
+

@@ -1,0 +1,14 @@
+<div id="award" class="form">
+<%= simple_form_for(@award, 
+  :url => (@award.id.blank? ? awards_path : award_path(@award)) ) do |f| %>
+
+  <div class="inputs">
+  <%= f.input :year %>
+  <%= f.input :description %>
+  <%= f.input :avatar %>
+  </div>
+  <div class="actions">
+    <%= f.submit "提交", :class => "btn btn-primary" %> 或者 <%= link_to '返回', awards_path %>
+  </div>
+<% end %>
+</div>

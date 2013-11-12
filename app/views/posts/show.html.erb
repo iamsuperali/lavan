@@ -1,0 +1,21 @@
+<% content_for :title, "法国拉苏米亚葡萄酒柜（La Sommelière）- #{@post.title}" %>
+<div class="bandeauHaut"  style="background-image:url('<%=asset_path("news_bg.jpg")%>')">
+  <div class="AccrocheListeRub" style="margin-right:-475px; top:24px; width:537px;">
+    <p class='titreH1Prod'>公司新闻</p></h1>
+    <p class="accrochePage">在这里查看公司的最新资讯</p>
+  </div>
+</div><div id="centreSite" class="body"><div id="contenuCentre">
+
+    <div class="capsActu">
+      <div class="contenuActu">
+        <p style=""><a href="javascript:history.back()" class="btnRetour"> < 返回</a></p>
+        <p><%=@post.created_at.strftime("%Y-%m-%d") %></p>
+        <h1><span id="h1_titre"><%=@post.title%></span></h1>
+        <div id="p_commentaire">
+          <%=@post.content.html_safe%>
+        </div>
+      </div>
+    </div>
+    <br style="clear: both;">
+
+  </div><div style="clear:both;" ></div></div>

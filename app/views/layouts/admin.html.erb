@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>洛梵画廊 - 管理后台</title>
+    <%= stylesheet_link_tag    "admin" %>
+    <%= javascript_include_tag "admin" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="wrap">  
+
+
+      <div class="container">
+
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+
+              <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+
+              <!-- Be sure to leave the brand out there if you want it shown -->
+              <a class="brand" href="/admin/index">洛梵画廊 管理后台</a>
+
+              <!-- Everything you want hidden at 940px or less, place within here -->
+              <div class="nav-collapse collapse navbar-inverse-collapse">
+                <ul class="nav">
+                  <!--li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">页面管理 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-header">关于洛梵画廊</li>
+                      <li><a href="/pages/1/edit">洛梵画廊简介</a></li>
+                      <li><a href="/members">洛梵画廊团队</a></li>
+                      <li><a href="#">诺言荣誉</a></li>
+                      <li class="divider"></li>
+                      <li class="nav-header">项目服务</li>
+                      <li><a href="#">建筑设计</a></li>
+                      <li><a href="#">室内设计</a></li>
+                      <li><a href="#">规划设计</a></li>
+                      <li><a href="#">餐饮设计</a></li>
+                      <li><a href="#">酒店发展顾问</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">联系我们</a></li>
+                    </ul>
+                  </li-->
+
+                  <!--li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">项目案例管理 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">建筑设计</a></li>
+                      <li><a href="#">室内设计</a></li>
+                      <li><a href="#">规划设计</a></li>
+                      <li><a href="#">餐饮设计</a></li>
+                      <li><a href="#">酒店发展顾问</a></li>
+                    </ul>
+                  </li-->
+
+                  <!--li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">公司新闻管理 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">洛梵画廊动态</a></li>
+                      <li><a href="#">洛梵画廊生活</a></li>
+                    </ul>
+                  </li-->
+
+                  <!--li><a href="#">职位管理</a></li-->
+                  <li><a href="/slides">首页幻灯片管理</a></li>
+                  <li><a href="/artists">艺术家管理</a></li>
+                  <li><a href="/artworks">艺术品管理</a></li>
+
+                  <% if current_user %>
+                    <li>
+                      <%= link_to "修改密码", edit_user_registration_path,:id=>"pwd_link"  %>
+                    </li>
+                    <li>
+                      <%= link_to "退出登陆", destroy_user_session_path, :method => :delete,:id=>"logout_link" %>
+                    </li>
+                  <%end%>
+
+                  <li><a href="/">返回首页</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <% if notice %>
+          <div class="alert alert-info">
+            <%= notice.html_safe%>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+        <%end%>
+
+
+        <% if alert %>
+          <div class="alert alert-error">
+            <%= alert.html_safe%>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+        <%end%>
+
+
+        <div>
+          <%= yield :base_sitemap%>
+        </div>
+
+        <%= yield %>
+      </div>
+
+    </div>  
+
+    <div id="footer">
+      <div class="container">
+        <span><a href="/">返回首页</a></span> <span>技术支持：iamsuperali@126.com</span>   <span>qq：19195591</span>
+      </div>
+    </div>
+
+  </body>
+</html>

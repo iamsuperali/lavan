@@ -1,0 +1,8 @@
+/*
+*= require_self
+*= require bootstrap
+*= require_tree ./admin
+*= require jquery.fileupload-ui
+*= require bootstrap-datetimepicker
+*/
+

@@ -1,0 +1,41 @@
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+        <% @page.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title,"标题" %>
+    <%= f.text_field :title,:style=>"width:500px;" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :subtitle,"副标题(非必要)" %>
+    <%= f.text_field :subtitle,:style=>"width:500px;" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content,"内容" %>
+    <%= f.cktext_area :content,
+      :toolbar => 'Full',
+      :width => 800,
+      :height => 200,
+      :language => 'zh-cn',
+      :filebrowserBrowseUrl => "/ckeditor/attachment_files",
+      :filebrowserUploadUrl => "/ckeditor/attachment_files",
+      :filebrowserImageBrowseUrl => "/ckeditor/pictures",
+      :filebrowserImageUploadUrl => "/ckeditor/pictures"
+  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "提交", :class => "btn btn-primary" %> 或者 <%= link_to '返回', members_path %>
+  </div>
+<% end %>

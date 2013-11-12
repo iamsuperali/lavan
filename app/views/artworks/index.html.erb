@@ -1,0 +1,47 @@
+<%= content_for :sitemap do %>
+  <span class="current">列表</span>
+<% end %>
+
+
+<%= content_for :base_sitemap do %>
+  <ul class="breadcrumb">
+    <li><a href="/admin/index">管理后台</a> <span class="divider">/</span></li>
+    <li><a href="<%= artworks_path %>">艺术品</a></li>
+  </ul>
+<% end %>
+
+<%= content_for :styles do %>
+<% end %>
+
+<div class="tools">
+  <a href="<%= artworks_path %>" class=btn btn-info">查看所有</a>
+  <a href="<%= new_artwork_path %>" class="btn btn-success">新建</a>
+</div>
+
+<div id="artworks">
+  <%= grid(@artworks_grid, :show_filters => :always) do |g|
+    g.column :name => '', :attribute => 'id',  filter: false
+
+    g.column :name => '艺术家',:model => 'Artist', :attribute => 'name',:custom_filter=>:auto do |artwork|
+      artwork.artist.name if artwork.artist
+    end
+    #g.column :name => 'artist_id', :attribute => 'artist_id',  filter: false
+    g.column :name => '分类',:model => 'Category', :attribute => 'name',:custom_filter=>:auto do |artwork|
+      artwork.category.name if artwork.category
+    end
+    #g.column :name => '分类', :attribute => 'category_id',  filter: false
+    g.column :name => '标题', :attribute => 'title'
+
+    g.column do |artwork|   
+      image_tag artwork.avater1.url(:thumb)
+    end
+
+    g.column :name => '创建时间', :attribute => 'created_at',  filter: false
+    g.column :name => '操作' do |c|
+      raw "#{link_to '修改', edit_artwork_path(c.id)}
+    #{link_to '删除', artwork_path(c.id), :method => :delete, :confirm => '确定要删除吗?'}"
+    end
+  end %>
+</div>
+
+

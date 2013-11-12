@@ -1,0 +1,35 @@
+<div id="main"><div id="home-main">
+
+    <div class="breadcrumbs">
+
+      <!-- Breadcrumb NavXT 4.0.2 -->
+      <a title="连接到 首页." href="/">首页</a> &gt; <a title="链接到 洛梵画廊团队." href="/home/members">洛梵画廊团队</a> &gt;  高远
+    </div>
+    <div id="page-title">
+      <img src="<%=asset_path("teams-title.gif")%>" alt="洛梵画廊简介" />
+    </div>
+    <div>
+
+      <div id="team-colum-left" class="page-colum-left">
+
+      </div>
+
+      <div id="team-colum-right" class="page-colum-right">
+
+        <p><%=  image_tag @member.title_img.url(:medium)%></p>
+
+       
+        <div>
+          <%=@member.info.html_safe%>
+        </div>  
+
+        <p>
+          <%= image_tag @member.avater2.url(:medium),:class=>"member-avatar",:title=>@member.cname%>
+        </p>
+      </div>
+
+    </div>
+  </div><!-- #home-main -->
+
+
+</div>

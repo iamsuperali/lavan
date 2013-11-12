@@ -1,0 +1,29 @@
+<% if @posts.length > 0 %>
+  <h3>文章列表</h3>
+  <table class="admin">
+    <tr>
+      <th>标题</th>
+      <th>分类</th>
+      <th>发表人</th>
+      <th>所属科组</th>
+      <!--th>允许评论</th-->
+      <th>作者</th>
+      <th>通过审批</th>
+      <th colspan="2" >操作</th>
+    </tr>
+
+    <% @posts.each do |post| %>
+      <tr>
+        <th scope="row"class="spec"><%=  link_to post.title, edit_post_path(post) %></th>
+        <td><%= post.category.name %></td>
+        <td><%= post.user.real_name %></td>
+        <td><%= format_org post.org_id %></td>
+        <!--td><%= post.comment_status %></td-->
+        <td><%= post.author %></td>
+        <td><%= format_boolean post.approved %></td>
+        <td><%= link_to '通过审批', "/posts/#{post.id}/approve", method: :post %></td>
+        <td><%= link_to '删除', post, method: :delete, data: { confirm: '确定删除?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

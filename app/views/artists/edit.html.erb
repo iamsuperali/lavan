@@ -1,0 +1,17 @@
+<%= content_for :sitemap do %>
+<span class="current">修改</span>
+<% end %>
+
+<%= content_for :base_sitemap do %>
+<ul class="breadcrumb">
+  <li><a href="/admin/index">管理后台</a> <span class="divider">/</span></li>
+  <li><a href="<%= artists_path %>">艺术家</a> <span class="divider">/</span></li>
+  <li class="active">修改</li>
+</ul>
+
+<% end %>
+<%= content_for :styles do %>
+<% end %>
+
+<%= render 'form' %>
+

@@ -1,0 +1,26 @@
+<%%= content_for :sitemap do %>
+<span class="current">查看</span>
+<%% end %>
+
+<%%= content_for :base_sitemap do %>
+<ul class="breadcrumb">
+  <li><a href="/admin/index">管理后台</a> <span class="divider">/</span></li>
+  <li><a href="<%%= <%= plural_table_name %>_path %>"><%= plural_table_name %></a> <span class="divider">/</span></li>
+  <li class="active">查看</li>
+</ul>
+<%% end %>
+<%%= content_for :styles do %>
+<%% end %>
+
+<div class="tools">
+  <%%= link_to '修改', edit_<%= singular_table_name %>_path(@<%= file_name %>), :class => "btn small success" %>
+  <%%= link_to '返回', <%= index_helper %>_path, :class => "btn small" %>
+</div>
+<div id="<%= singular_table_name %>">
+  <% for attribute in attributes -%>
+    <p>
+      <b><%= attribute.human_name %>:</b>
+      <%%= @<%= file_name %>.<%= attribute.name %> %>
+    </p>
+  <% end -%>
+</div>

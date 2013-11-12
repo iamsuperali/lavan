@@ -1,0 +1,75 @@
+<div id="content">
+  <div class="container one_col">
+    <div class="col_main">
+
+      <h1>艺术家</h1>
+      <div class="siy_brands">
+        <%  @letters.each do |l| %>
+          <dl id="<%=l.upcase%>">
+            <dt><%=l.upcase%></dt>
+            <dd>
+              <%Artist.find_all_by_letter(l).each do |a|%>
+              <a href="/<%= a.pinyin %>"><%= a.name%></a>
+              <%end%>
+            </dd>
+          </dl>
+        <% end %>  
+
+        <!--dl id="A">
+          <dt>A</dt>
+          <dd>
+            <a href="alita" class="first_child">阿丽塔</a>
+            <a href="aixuan">艾轩</a>
+            <a href="artist-1624.html">藤田茜</a>
+            <a href="artist-1643.html">安波</a>
+            <a href="artist-1674.html">安滨</a>
+            <a href="artist-1974.html">安迪·沃霍尔</a>
+            <a href="artist-2074.html">安锐勇</a>
+            <a href="amritdongol">AMRIT DONGOL</a>
+            <a href="artist-295.html">爱国</a>
+            <a href="artist-380.html">艾安</a>
+            <a href="artist-811.html" class="first_child">阿海</a>
+            <a href="artist-1401.html">艾沙</a>
+            <a href="artist-2311.html">艾旭东</a>
+          </dd>
+        </dl-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $('.slider').Slidiy();
+  var mt_wrapper = $('.brand_details .button_wrapper');
+  var profile = $('.brand_details .description');
+  var player = $('.brand_details .player_wrapper');
+  if (profile.length > 0) {
+    profile.hide();
+    mt_wrapper.append('<a href="javascript:;" class="simple_button" id="show_profile">简介</a>');
+    $('#show_profile').click(function(){
+      var profile_html = '<div class="text_in_the_box">'+profile.html()+'</div>';
+      $.fn.colorbox({maxHeight:'80%',width:'750px',title:'简介',html:profile_html,onOpen:function(){
+          $('.tipsy').css({zIndex:'100'});
+        },onClosed:function(){
+          $('.tipsy').css({zIndex:'1000'});
+        }
+      });
+      return false;
+    });
+  }
+  if (player.length > 0) {
+    player.hide();
+    mt_wrapper.append('<a href="javascript:;" class="simple_button" id="show_video">视频</a>');
+    $('#show_video').click(function(){
+      var player_html = $('#player_wrapper').html();
+      $.fn.colorbox({innerHeight:'540px',innerWidth:'960px',title:'视频',iframe:true,scrolling:false,href:'artist.php?id=&iframe=video',onOpen:function(){
+          $('.tipsy').css({zIndex:'100'});
+        },onClosed:function(){
+          $('.tipsy').css({zIndex:'1000'});
+        }
+      });
+      return false;
+    });
+  }
+</script>

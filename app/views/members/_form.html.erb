@@ -1,0 +1,52 @@
+<div id="member" class="form">
+  <%= simple_form_for @member, 
+    :url => (@member.id.blank? ? members_path : member_path(@member)),
+    :class => 'form-horizontal' do |f| %>
+
+    <div class="inputs">
+      <%= f.input :cname,label: "中文名" %>
+      <%= f.input :ename,label: "英文名" %>
+
+      <fieldset class="clearfix" id="member-avatar">
+        <legend>图片管理</legend>
+        <div class="pull-left">
+          <span class="badge badge-success">1</span>
+          <%= f.input :avatar1, :as => :avatar,:label=>"洛梵画廊团队页头像",:input_html=>{class: 'avatar-input '} %>
+        </div>
+
+         <div class="pull-left">
+           <span class="badge badge-success">2</span>
+           <%= f.input :avater2, :as => :avatar,:label=> "个人详细页页头像",:input_html=>{ class: 'avatar-input' } %>
+        </div>  
+
+          <div class="pull-left">
+            <span class="badge badge-success">3</span>
+            <%= f.input :title_img, :as => :avatar,:label=>"职位图片",:input_html=>{ class: 'avatar-input' } %>
+          </div>
+       </fieldset>  
+
+
+
+
+           <fieldset class="clearfix" style="margin-bottom:20px;">
+            <legend>个人简介</legend>
+
+            <%= f.cktext_area :info,
+              :toolbar => 'Full',
+              :width => 800,
+              :height => 200,
+              :resize_enabled =>false, 
+              :language => 'zh-cn',
+              :filebrowserBrowseUrl => "/ckeditor/attachment_files",
+              :filebrowserUploadUrl => "/ckeditor/attachment_files",
+              :filebrowserImageBrowseUrl => "/ckeditor/pictures",
+              :filebrowserImageUploadUrl => "/ckeditor/pictures"
+            %>
+           </fieldset>
+      
+          </div>
+          <div class="actions">
+            <%= f.submit "提交", :class => "btn btn-primary" %> 或者 <%= link_to '返回', members_path %>
+          </div>
+        <% end %>
+      </div>

@@ -1,0 +1,22 @@
+<h3>友情链接列表</h3>
+
+<table class="admin">
+  <tr>
+    <th>网址</th>
+    <th>名称</th>
+    <th colspan="2" >操作</th>
+  </tr>
+
+<% @links.each do |link| %>
+  <tr>
+    <td scope="row"class="spec"><%= link.url %></td>
+    <td><%= link.name %></td>
+    <td><%= link_to '修改', edit_link_path(link) %></td>
+    <td><%= link_to '删除', link, method: :delete, data: { confirm: '您确定?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '新增友情链接', new_link_path %>

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="description" content="全球领先的在线艺术品拍卖/画廊服务商，总部位于北京798。我们的服务让艺术市场的价格透明和交易公平，我们的使命是为所有艺术家提供机会和支持，让他们能够通过销售作品维持生存并继续艺术事业，并帮收藏家发现当代艺术的未来明星。"/><meta name="keywords" content="艺术品交易平台，在线拍卖，在线艺术品拍卖，艺术品投资收藏，数字油画，艺术品拍卖，************，艺术品拍卖，艺术品交易，798，文交所，当代艺术，油画，版画，雕塑，摄影、录像、行为表演，当代水墨，艺术品，艺术基金,吴冠中，苏紫紫，auction,art,gallery,online auction"/><title>洛梵画廊</title>
+    <meta property="wb:webmaster" content="48c0bd12943df03a" />
+    <link type="image/x-icon" href="<%=asset_path("favicon.gif")%>" rel="shortcut icon" />
+    <%= javascript_include_tag :application %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 8]><link href="/static/css/ie.css?v=13" rel="stylesheet" type="text/css"/><![endif]-->
+    <link rel="alternate" type="application/rss+xml" title="RSS|HIHEY艺术网" href="feed.xml"/></head>
+  <body id="page_index">
+    <%= render :partial =>"/layouts/banner"%>
+    <%= yield %>
+    <%= render :partial =>"/layouts/footer"%>
+    <script type="text/javascript">
+                    var order_input = $('#order_query input[name="order_sn"]');
+                    var vote_form = $('#vote form');
+                    var subscription_email = $('#subscription input[name="email"]');
+                    $('.press_slider').Slidiy();
+                    $('#order_query').append(loader).append(result);
+                    order_input.tipsy({
+                      trigger: 'manual', gravity: 's', fade: true
+                    }).focusout(function() {
+                      $(this).tipsy('hide');
+                    }).keypress(function() {
+                      $(this).tipsy('hide');
+                    });
+                    $('#order_query input[type="button"]').click(function() {
+                      orderQuery();
+                    });
+                    $('#vote').append(loader).append(result);
+                    vote_form.tipsy({
+                      trigger: 'manual', gravity: 's', fade: true
+                    }).focusout(function() {
+                      $(this).tipsy('hide');
+                    });
+                    $('#vote input[name="option_id"]').change(function() {
+                      vote_form.tipsy('hide');
+                    });
+                    $('#subscription').append(loader).append(result);
+                    subscription_email.tipsy({
+                      trigger: 'manual', gravity: 's', fade: true
+                    }).focusout(function() {
+                      $(this).tipsy('hide');
+                    }).keypress(function() {
+                      $(this).tipsy('hide');
+                    });
+    </script>
+  </body>
+</html>
