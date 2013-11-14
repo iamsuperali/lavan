@@ -2,7 +2,7 @@
 class HomeController < ApplicationController
   def index
     @slides = Slide.find(:all)
-    @posts = Post.find(:all,:limit=>6)
+    @artworks = Artwork.find(:all,:limit=>6)
   end
   
   def search
@@ -42,6 +42,10 @@ class HomeController < ApplicationController
   
   def artists
     @letters = Artist.select(:letter).map(&:letter).uniq
+  end
+  
+  def artworks
+    @artworks = Artwork.find(:all,:limit=>6)
   end
   
   

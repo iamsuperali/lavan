@@ -21,90 +21,20 @@
         <div class="bd goods_list display_grid">
           <div class=" goods_slider_big">
             <ul>
+              <% @artworks.each do |a| %>
               <li class="first_child" data-id="9789">
                 <span class="photo">
-                  <a href="art-9789.html" title="花非花" class="image"><img src="/images/201309/goods_img/9789_G_1380483691966.jpg" alt="毛栗子_花非花"/></a>
+                  <a href="art-9789.html" title="<%=a.title%>" class="image"><img src="<%=a.avater1.url(:medium)%>" alt="<%=a.artist.name%>_<%=a.title%>"/></a>
                 </span>
                 <span class="info">
-                  <a href="maolizi" title="毛栗子" class="brand">毛栗子</a>
-                  <a href="art-9789.html" title="花非花" class="name">花非花</a>
+                  <a href="<%=a.artist.pinyin%>" title="<%=a.artist.name%>" class="brand"><%=a.artist.name%></a>
+                  <a href="art-9789.html" title="<%=a.title%>" class="name"><%=a.title%></a>
                 </span>
               </li>
-              <li data-id="9934">
-                <span class="photo">
-                  <a href="art-9934.html" title="约翰列侬和丽莎在工厂" class="image"><img src="/images/201310/goods_img/9934_G_1382559956982.jpg" alt="克里斯托弗•马可斯_约翰列侬和丽莎在工厂"/></a>
-                </span>
-                <span class="info">
-                  <a href="Christopher Makos" title="克里斯托弗•马可斯" class="brand">克里斯托弗•马可斯</a>
-                  <a href="art-9934.html" title="约翰列侬和丽莎在工厂" class="name">约翰列侬和丽莎在工厂</a>
-                </span>
-              </li>
-              <li data-id="9935">
-                <span class="photo">
-                  <a href="art-9935.html" title="&quot;电梯在哪？&quot;安迪沃霍尔在长城1982" class="image"><img src="/images/201310/goods_img/9935_G_1382560561075.jpg" alt="克里斯托弗•马可斯_&quot;电梯在哪？&quot;安迪沃霍尔在长城1982"/></a>
-                </span>
-                <span class="info">
-                  <a href="Christopher Makos" title="克里斯托弗•马可斯" class="brand">克里斯托弗•马可斯</a>
-                  <a href="art-9935.html" title="&quot;电梯在哪？&quot;安迪沃霍尔在长城1982" class="name">"电梯在哪？"安迪沃霍尔在长城1982</a>
-                </span>
-              </li>
-              <li class="first_child" data-id="9936">
-                <span class="photo">
-                  <a href="art-9936.html" title="安迪沃霍尔在长城1982" class="image"><img src="/images/201310/goods_img/9936_G_1382561130005.jpg" alt="克里斯托弗•马可斯_安迪沃霍尔在长城1982"/></a>
-                </span>
-                <span class="info">
-                  <a href="Christopher Makos" title="克里斯托弗•马可斯" class="brand">克里斯托弗•马可斯</a>
-                  <a href="art-9936.html" title="安迪沃霍尔在长城1982" class="name">安迪沃霍尔在长城1982</a>
-                </span>
-              </li>
-              <li data-id="9847">
-                <span class="photo">
-                  <a href="art-9847.html" title="花影逍遥" class="image"><img src="/images/201310/goods_img/9847_G_1381701760251.jpg" alt="叶丽美_花影逍遥"/></a>
-                </span>
-                <span class="info">
-                  <a href="yelimei" title="叶丽美" class="brand">叶丽美</a>
-                  <a href="art-9847.html" title="花影逍遥" class="name">花影逍遥</a>
-                </span>
-              </li>
-              <li data-id="9727">
-                <span class="photo">
-                  <a href="art-9727.html" title="悟E01" class="image"><img src="/images/201309/goods_img/9727_G_1380501360861.jpg" alt="蓝正辉_悟E01"/></a>
-                </span>
-                <span class="info">
-                  <a href="artist-410.html" title="蓝正辉" class="brand">蓝正辉</a>
-                  <a href="art-9727.html" title="悟E01" class="name">悟E01</a>
-                </span>
-              </li>
-              <li class="first_child" data-id="9839">
-                <span class="photo">
-                  <a href="art-9839.html" title="诗象2" class="image"><img src="/images/201310/goods_img/9839_G_1381700601798.jpg" alt="祁璐_诗象2"/></a>
-                </span>
-                <span class="info">
-                  <a href="qilu" title="祁璐" class="brand">祁璐</a>
-                  <a href="art-9839.html" title="诗象2" class="name">诗象2</a>
-                </span>
-              </li>
-              <li data-id="9149">
-                <span class="photo">
-                  <a href="art-9149.html" title="我们这一代Bye Bye" class="image"><img src="/images/201307/goods_img/9149_G_1373605728611.jpg" alt="高孝午_我们这一代Bye Bye"/></a>
-                </span>
-                <span class="info">
-                  <a href="artist-445.html" title="高孝午" class="brand">高孝午</a>
-                  <a href="art-9149.html" title="我们这一代Bye Bye" class="name">我们这一代Bye Bye</a>
-                </span>
-              </li>
-              <li data-id="9799">
-                <span class="photo">
-                  <a href="art-9799.html" title="N社区－人间乐园2" class="image"><img src="/images/201309/goods_img/9799_G_1380494924270.jpg" alt="那娜_N社区－人间乐园2"/></a>
-                </span>
-                <span class="info">
-                  <a href="nana" title="那娜" class="brand">那娜</a>
-                  <a href="art-9799.html" title="N社区－人间乐园2" class="name">N社区－人间乐园2</a>
-                </span>
-              </li>
+              <%end%>
             </ul>
           </div>
-          <a href="search.php?intro=best" title="更多精选" class="more button brighter_button"><span>更多</span></a>
+          <a href="#" title="更多精选" class="more button brighter_button"><span>更多</span></a>
         </div>
       </div>
 

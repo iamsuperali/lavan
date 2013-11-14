@@ -38,6 +38,7 @@ FishCms::Application.routes.draw do
   get "home/contactus"
   get "home/members"
   get "home/artists"
+  get "home/artworks"
   match '/:pinyin', :to => 'artists#show'
   match 'admin',:to=>"admin/index"
 
